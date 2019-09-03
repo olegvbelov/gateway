@@ -1,0 +1,10 @@
+server:
+  port: 8085
+---
+spring:
+  application:
+    name: gateway
+  cloud:
+    config:
+      uri: http://142.93.138.139:8888
+      enabled: true
