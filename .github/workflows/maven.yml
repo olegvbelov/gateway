@@ -20,7 +20,7 @@ jobs:
       run: docker build . --file Dockerfile --tag cr.yandex/crp1kafuq6umi5ce3tra/gateway:latest
 
     - name: Login in docker repository
-      run: docker login --username=oauth --password=AgAAAAABY9CuAATuwQEVgeoN3Uyevi6na295oXM cr.yandex
+      run: docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} cr.yandex
 
     - name: Push the Docker image
       run: docker push cr.yandex/crp1kafuq6umi5ce3tra/gateway:latest
