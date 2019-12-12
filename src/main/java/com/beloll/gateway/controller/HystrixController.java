@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/fallback")
 public class HystrixController {
 
-    @GetMapping("/photo-service")
-    public String photoServiceFallback() {
-        return "Photo-service is not available now.";
+    @GetMapping("/service")
+    public String serviceFallback() {
+        return "Service is not available now.";
     }
 }
