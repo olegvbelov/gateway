@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.beloll</groupId>
     <artifactId>gateway</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <name>gateway</name>
     <description>Cloud API Gateway</description>
 
