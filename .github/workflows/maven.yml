@@ -17,8 +17,8 @@ jobs:
       env:
         VERSION: 1.1 
       run: mvn -B package -DskipTests=true --file pom.xml
-           mvn help:evaluate -Dexpression=project.version -q -DforceStdout > $VERSION
-           echo $VERSION
+           #mvn help:evaluate -Dexpression=project.version -q -DforceStdout > $VERSION
+           #echo $VERSION
     - name: Build the Docker image
       env:
         IMAGE_TAG: ${{ github.sha }}
