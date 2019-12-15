@@ -14,11 +14,14 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
+      env:
+        VERSION: 1.1 
       run: mvn -B package -DskipTests=true --file pom.xml
-      
+           mvn help:evaluate -Dexpression=project.version -q -DforceStdout > $VERSION
+           echo $VERSION
     - name: Build the Docker image
       env:
-        IMAGE_TAG: $({mvn help:evaluate -Dexpression=project.version -q -DforceStdout)} 
+        IMAGE_TAG: ${{ github.sha }}
       run: docker build . --file Dockerfile --tag cr.yandex/crp1kafuq6umi5ce3tra/gateway:$IMAGE_TAG
            docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} cr.yandex
            docker push cr.yandex/crp1kafuq6umi5ce3tra/gateway:$IMAGE_TAG
