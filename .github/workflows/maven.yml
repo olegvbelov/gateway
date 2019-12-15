@@ -15,8 +15,9 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       env:
-        VERSION: ${{mvn help:evaluate -Dexpression=project.version -q -DforceStdout}}
+        VERSION: 1.1
       run: |
+        mvn help:evaluate -Dexpression=project.version -q -DforceStdout > $VERSION
         mvn -B package -DskipTests=true --file pom.xml
         echo $VERSION
     - name: Build the Docker image
